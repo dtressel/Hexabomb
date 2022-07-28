@@ -1,0 +1,241 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: #f3c1b3;
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    margin: 25px auto -5px; 
+}
+
+#wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 50px 1fr;
+}
+
+.center {
+    text-align: center;
+}
+
+.closeX:hover {
+    cursor: pointer;
+}
+
+.closeX {
+    position: absolute;
+    font-family: sans-serif;
+    font-size: 20px;
+    top: 2%;
+    right: 5%;
+}
+
+/*.popup must always stay before .popup-visible-no-animate and .popup-visible-animate in this stylesheet*/
+.popup {
+    position: absolute;
+    background-color: lightgrey;
+    border-radius: 20px;
+    padding-bottom: 10px;
+    z-index: 3;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -350px;
+    bottom: -350px;
+    height: 250px;
+    width: 175px;
+    box-shadow: -5px 2px 30px 2px rgb(107, 107, 107);
+    visibility: hidden;
+}
+
+.popup-visible-no-animate {
+    visibility: visible;
+    top: 40px;
+    bottom: 40px;
+}
+
+.popup-visible-animate {
+    visibility: visible;
+    animation: popup 0.8s ease-in 1 0.2s forwards;
+}
+
+@keyframes popup {
+    0% {
+        top: -350px;
+        bottom: -350px;
+    }
+    60% {
+        top: 40px;
+        bottom: 40px;
+    }
+    70% {
+        top: 30px;
+        bottom: 30px;
+    }
+    80% {
+        top: 40px;
+        bottom: 40px;
+    }
+    90% {
+        top: 35px;
+        bottom: 35px;
+    }
+    100% {
+        top: 40px;
+        bottom: 40px;
+    }
+}
+
+.popup-buttons {
+    display: block;
+    margin: 7px auto;
+}
+
+.fhex, .mhex, .bhex {
+    width: 52px;
+    height: 30px;
+    margin: 2px;
+    border-radius: 1px;
+}
+
+.fhex {
+    background-color: blue;
+    position: relative;
+}
+
+.bhex {
+    background-color: green;
+    box-shadow: -5px 2px 10px 0 rgb(107, 107, 107);
+}
+
+.mhex {
+    background-color: pink;
+}
+
+.mhex:hover {
+    box-shadow: 0 0 5px 1px rgba(255, 255, 220, 1);
+}
+
+.horcont {
+    display: flex;
+    justify-content: center;
+    padding: 7px;
+}
+
+.horcont2 {
+    height: 200px;
+    width: 200px;
+    background-color: orange;
+}
+
+#board-container {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    position: relative;
+    /*border: 3px solid black;*/
+    height: 373px;
+}
+
+.right-column {
+    grid-column: 3 / 4;
+}
+
+#score {
+    grid-row: 1 / 2;
+}
+
+#bomb-timers {
+    grid-row: 2 / 3;
+}
+
+#board-back {
+    z-index: -1;
+}
+
+#board-middle {
+    z-index: 1;
+}
+
+#board-front {
+    z-index: 2;
+    pointer-events: none;
+}
+
+.board {
+    padding: 15px 0;
+    position: absolute;
+    width: 100%;
+}
+
+.color-background {
+    background-color:rgba(148, 82, 82, 0.4);
+}
+
+.mhex::before, .mhex::after, .fhex::before, .fhex::after, .bhex::before, .bhex::after {
+    content: "";
+    height: inherit;
+    width: inherit;
+    background-color: inherit;
+    position: absolute;
+    border: inherit;
+    border-radius: inherit;
+    box-shadow: inherit;
+}
+
+.mhex::before, .fhex::before, .bhex::before {
+    transform: rotate(60deg);
+}
+
+.mhex::after, .fhex::after, .bhex::after {
+    transform: rotate(-60deg);
+}
+
+.number-div {
+    position: absolute;
+    z-index: 3;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    height: fit-content;
+    width: 100%;
+}
+
+.numbers {
+    margin: 0;
+    text-align: center;
+    font-size: 30px;
+}
+
+.red {
+    color: red;
+}
+
+@media only screen and (max-width: 700px) {
+    #wrapper {
+        grid-template-columns: 1fr 4fr;
+    }
+}
+
+@media only screen and (max-width: 525px) {
+    #wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    #board-container {
+        grid-column: 1 / 2;
+    }
+}
+
+/*@media only screen and (max-width: 430px) {
+    need something to accomodate mobile devices
+}

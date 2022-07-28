@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hexabomb</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script src="app.js" charset="UTF-8"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Hexabomb</h1>
+        </header>
+        <main>
+            <div id="wrapper">
+                <div id="board-container">
+                    <div id="popup-play" class="popup popup-visible-animate">
+                        <span id="popup-play-closeX" class="closeX">&#10006</span>
+                        <h3 class="center">Play</h3>
+                        <p class="center">Board Size:</p>
+                        <button id="popupButton37" class="popup-buttons" type="button" name="hex-size" value="4">37-hex</button>
+                        <button id="popupButton61" class="popup-buttons" type="button" name="hex-size" value="5">61-hex</button>
+                        <button id="popupButton91" class="popup-buttons" type="button" name="hex-size" value="6">91-hex</button>
+                    </div>
+                    <div id="popup-game-over" class="popup">
+                        <span id="popup-game-over-closeX" class="closeX">&#10006</span>
+                        <h3 class="center" id="result"></h3>
+                        <p class="center" id="final-score"></p>
+                        <button id="play-again" class="popup-buttons" type="button" name="hex-size" value="4">Play Again</button>
+                    </div>
+                    <div id="board-front" class="board"></div>
+                    <div id="board-middle" class="board"></div>
+                    <div id="board-back" class="board"></div>
+                </div>
+                <div id="score" class="right-column"></div>
+                <div id="bomb-timers" class="right-column"></div>
+            </div>
+        </main>
+    </body>
+</html>
