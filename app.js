@@ -16,7 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const button37 = document.getElementById('popupButton37');
     const button61 = document.getElementById('popupButton61');
     const button91 = document.getElementById('popupButton91');
+    const instructionsButton = document.getElementById('instructions-button');
     const popupPlayCloseX = document.getElementById('popup-play-closeX');
+    const popupInstructionsCloseX = document.getElementById('popup-instructions-closeX');
     const popupGameOverCloseX = document.getElementById('popup-game-over-closeX');
     const buttonPlayAgain = document.getElementById('play-again');
 
@@ -26,6 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function activatePlayPopup () {
         popupPlayCloseX.addEventListener("click", () => {
             removePlayPopup();
+        })
+
+        popupInstructionsCloseX.addEventListener("click", () => {
+            document.getElementById("popup-instructions").setAttribute('class', 'popup');
         })
 
         button37.addEventListener("click", () => {
@@ -47,6 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
             moveTimer = 14;
             console.log("Board Size =" + boardSize);
             gamePlay();
+        })
+
+        instructionsButton.addEventListener("click", () => {
+            document.getElementById('popup-instructions').classList.add('popup-visible-no-animate');
         })
     }
 
